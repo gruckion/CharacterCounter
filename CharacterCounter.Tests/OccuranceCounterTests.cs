@@ -2,7 +2,7 @@ namespace Tests
 {
 	using CharacterCounter.Logic;
 	using NUnit.Framework;
-    using System;
+	using System;
 
     public class OccuranceCounterTests
 	{
