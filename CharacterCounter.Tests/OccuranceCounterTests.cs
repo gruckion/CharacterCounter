@@ -2,8 +2,9 @@ namespace Tests
 {
 	using CharacterCounter.Logic;
 	using NUnit.Framework;
+    using System;
 
-	public class OccuranceCounterTests
+    public class OccuranceCounterTests
 	{
 		private IOccuranceCounter OccuranceCounter;
 
@@ -13,13 +14,25 @@ namespace Tests
 			this.OccuranceCounter = new OccuranceCounter();
 		}
 
-		[Test]
 		[TestCase("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eanean sodales justo et Enim ornare, a congue lacus commodo.", 'e', 10)]
 		[TestCase("17272838119191929838299111", '1', 8)]
 		public void ShouldReturnCorrectOccuranceCountForCharacterInString(
 			string sequence, char charOfInterest, int expectedOccurances)
 		{
 			var occuranceCount = this.OccuranceCounter.CountCharactersInSequence(sequence, charOfInterest);
+
+			Assert.AreEqual(occuranceCount, expectedOccurances);
+		}
+
+		[TestCase(17 + 5, '1', 1)]
+		public void ShouldEvaluateAndReturnCorrectOccuranceCountForChaaracterInExpression(
+			int expression, char charOfInterest, int expectedOccurances)
+		{
+			string sequence = expression.ToString(); 
+			var occuranceCount = this.OccuranceCounter.CountCharactersInSequence(
+				sequence, charOfInterest);
+
+			Assert.Pass();
 
 			Assert.AreEqual(occuranceCount, expectedOccurances);
 		}
