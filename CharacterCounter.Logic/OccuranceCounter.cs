@@ -1,17 +1,17 @@
-﻿using System;
-
-namespace CharacterCounter.Logic
+﻿namespace CharacterCounter.Logic
 {
+	using System.Linq;
+
 	public interface IOccuranceCounter
 	{
-		int CountCharactersInSequence(string sequence, char charInterest);
+		int CountCharactersInSequence(string sequence, char charOfInterest);
 	}
 
 	public class OccuranceCounter : IOccuranceCounter
 	{
-		public int CountCharactersInSequence(string sequence, char charInterest)
+		public int CountCharactersInSequence(string sequence, char charOfInterest)
 		{
-			return sequence.Length;
+			return sequence.Count(c => c == charOfInterest);
 		}
 	}
 }
