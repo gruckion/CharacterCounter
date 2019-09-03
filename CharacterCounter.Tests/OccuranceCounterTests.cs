@@ -19,7 +19,8 @@ namespace Tests
 		public void ShouldReturnCorrectOccuranceCountForCharacterInString(
 			string sequence, char charOfInterest, int expectedOccurances)
 		{
-			var occuranceCount = this.OccuranceCounter.CountCharactersInSequence(sequence, charOfInterest);
+			var occuranceCount = this.OccuranceCounter.CountCharactersInSequence(
+				sequence, charOfInterest);
 
 			Assert.AreEqual(occuranceCount, expectedOccurances);
 		}
@@ -28,9 +29,8 @@ namespace Tests
 		public void ShouldEvaluateAndReturnCorrectOccuranceCountForChaaracterInExpression(
 			int expression, char charOfInterest, int expectedOccurances)
 		{
-			string sequence = expression.ToString(); 
 			var occuranceCount = this.OccuranceCounter.CountCharactersInSequence(
-				sequence, charOfInterest);
+				expression, charOfInterest);
 
 			Assert.Pass();
 

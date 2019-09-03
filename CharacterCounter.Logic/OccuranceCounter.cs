@@ -4,14 +4,14 @@
 
 	public interface IOccuranceCounter
 	{
-		int CountCharactersInSequence(string sequence, char charOfInterest);
+		int CountCharactersInSequence<T>(T sequence, char charOfInterest);
 	}
 
 	public class OccuranceCounter : IOccuranceCounter
 	{
-		public int CountCharactersInSequence(string sequence, char charOfInterest)
+		public int CountCharactersInSequence<T>(T sequence, char charOfInterest)
 		{
-			return sequence.Count(c => c == charOfInterest);
+			return sequence.ToString().Count(c => c == charOfInterest);
 		}
 	}
 }
